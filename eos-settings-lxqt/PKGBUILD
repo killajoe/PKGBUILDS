@@ -1,14 +1,13 @@
 # Maintainer: joekamprad <joekamprad at endeavouros.com>
 
 pkgname=eos-settings-lxqt
-pkgver=2.5
+pkgver=2.6
 pkgrel=1
 pkgdesc="LXQT settings for EndeavourOS"
 arch=('any')
 license=('GPL')
 depends=('endeavouros-theming')
 url="https://github.com/endeavouros-team/${pkgname}"
-license=("GPL")
 makedepends=("git")
 source=("https://github.com/endeavouros-team/${pkgname}/archive/refs/tags/${pkgver}.tar.gz")
 sha256sums=('b562987a72b49d5a48a9e402b871c30b729f493c04e89e35d5da4963cdb7b7a4')

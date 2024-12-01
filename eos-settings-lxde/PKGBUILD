@@ -1,21 +1,18 @@
 # Maintainer: joekamprad<joekamprad at endeavouros.com>
 
 pkgname=eos-settings-lxde
-pkgver=1.1
+pkgver=2.0
 pkgrel=1
 pkgdesc="LXDE settings for EndeavourOS"
 arch=('any')
-license=('GPL3')
+license=('GPL')
 depends=('endeavouros-theming')
-source=('org.freedesktop.Notifications.service'
-        'panel'
-        'desktop-items-0.conf')
-sha256sums=('75b67e1e4d9cfa1c2316a4a35f2468f6c9977c314322449023af0ef1bbf82ca4'
-            '2d2bfb48da548fc0b683ac5cbd3a1d92ef09bd7e7806d6b0ed83b8530c950ea8'
-            '1c8d82b55e563669f3aed58deff91d396b887b84371b8a6b5994cc3083e150b2')
+url="https://github.com/endeavouros-team/${pkgname}"
+makedepends=("git")
+source=("https://github.com/endeavouros-team/${pkgname}/archive/refs/tags/${pkgver}.tar.gz")
+sha256sums=('571901e8bf1fc3df02976103ec1ed9cc9bda82247ef1be2ccb06bbcb9ddea2e3')
 
 package() {
-    install -Dm755  "${srcdir}/org.freedesktop.Notifications.service" "${pkgdir}/etc/skel/.local/share/dbus-1/services/org.freedesktop.Notifications.service"
-    install -Dm755  "${srcdir}/panel" "${pkgdir}/etc/skel/.config/lxpanel/LXDE/panels/panel"
-    install -Dm755  "${srcdir}/desktop-items-0.conf" "${pkgdir}/etc/skel/.config/pcmanfm/LXDE/desktop-items-0.conf"
+    cd "$pkgname-$pkgver"
+    cp -R "etc" "${pkgdir}/"
 }
