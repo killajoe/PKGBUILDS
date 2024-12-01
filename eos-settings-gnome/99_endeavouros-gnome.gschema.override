@@ -10,7 +10,8 @@ primary-color='#46226e'
 secondary-color='#000000'
 
 [org.gnome.desktop.interface]
-color-scheme='default'
-cursor-theme='Qogir'
-gtk-theme='Adwaita'
-icon-theme='Qogir'
+accent-color='purple'
+color-scheme='prefer-dark'
+cursor-theme='Qogir-dark'
+gtk-theme='Adwaita-dark'
+icon-theme='Qogir-dark'

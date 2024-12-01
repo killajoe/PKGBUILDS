@@ -1,18 +1,20 @@
 # Maintainer: joekamprad <joekamprad at endeavouros.com>
 
 pkgname=eos-settings-lxqt
-pkgver=1.1
+pkgver=2.5
 pkgrel=1
 pkgdesc="LXQT settings for EndeavourOS"
 arch=('any')
 license=('GPL')
 depends=('endeavouros-theming')
-source=('panel.conf'
-        'settings.conf')
-sha256sums=('24b3e84062a7d137fec6d6f838f9aa2083a5a0252c7ee51253c8c06dc3b4d093'
-            '8c5aa2394afa2958a8bc066085a48be0c0f6d4321a44a715447f8b049b64ecfe')
+url="https://github.com/endeavouros-team/${pkgname}"
+license=("GPL")
+makedepends=("git")
+source=("https://github.com/endeavouros-team/${pkgname}/archive/refs/tags/${pkgver}.tar.gz")
+sha256sums=('b562987a72b49d5a48a9e402b871c30b729f493c04e89e35d5da4963cdb7b7a4')
 
 package() {
-    install -Dm755  "${srcdir}/panel.conf" "${pkgdir}/etc/skel/.config/lxqt/panel.conf"
-    install -Dm755  "${srcdir}/settings.conf" "${pkgdir}/etc/skel/.config/pcmanfm-qt/lxqt/settings.conf"
+    cd "$pkgname-$pkgver"
+    cp -R "etc" "${pkgdir}/"
+    install -Dm755 "99_endeavouros-lxqt.gschema.override" "${pkgdir}/usr/share/glib-2.0/schemas/99_endeavouros-lxqt.gschema.override"
 }
